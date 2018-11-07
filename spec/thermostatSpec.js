@@ -61,10 +61,10 @@ describe('when power saving mode is on', function() {
 describe('when power saving mode is off', function() {
   var thermostat;
   thermostat = new Thermostat();
-    
+
   it('has a maximum temperature of 32 degrees', function() {
     thermostat.switchPowerSavingModeOff();
-    for (var i = 0; i < 13; i++) {
+    for (var i = 0; i < 12; i++) {
       thermostat.up();
     }
     expect(thermostat.getCurrentTemperature()).toEqual(32);
