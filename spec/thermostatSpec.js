@@ -65,4 +65,10 @@ describe('', function() {
       expect(thermostat.getCurrentTemperature()).toEqual(32);
     });
   });
-});
+
+  it('can be reset to the default temperature', function() {
+    for (var i = 0; i < 6; i++) {
+      thermostat.resetTemperature();
+      expect(thermostat.getCurrentTemperature()).toEqual(20);
+    }
+  });
