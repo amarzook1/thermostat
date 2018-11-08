@@ -72,3 +72,4 @@ describe('', function() {
       expect(thermostat.getCurrentTemperature()).toEqual(20);
     }
   });
+});
