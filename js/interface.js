@@ -1,13 +1,20 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
 
-  function updateTemperature() { //updating temp method
+  function updateTemperature() {
     $('#temperature').text(thermostat.temperature);
-  };
+    if(thermostat.energyUsage() === 'low-usage') {
+      $('#temperature').css('color', 'green')
+    } else if(thermostat.energyUsage() === 'medium-usage') {
+      $('#temperature').css('color', 'black')
+    } else {
+      $('#temperature').css('color', 'red')
+    }
+  }
 
   updateTemperature();
 
-  $('#temp-up').on('click' function() { // event listener
+  $('#temp-up').click(function() { // event listener
     thermostat.up();// update model
     updateTemperature(); //update view
   });
@@ -33,8 +40,4 @@ $(document).ready(function() {
     $('#power-saving').text('off')
     updateTemperature();
   })
-
-  function updateTemperature() {
-    $('#temperature').text(thermostat.temperature);
-  };
 });
